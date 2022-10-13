@@ -1,9 +1,9 @@
 .cell{
-    border : 2px solid gray;
-   
+    /* border: 2px solid white; */
     display: inline-block;
-    width: 20px ;
-    height: 20px ;
+    width: 18px ;
+    height: 18px ;
+    margin: 2px;
   }
   #curr{
     background-color: red;
@@ -14,9 +14,15 @@
   }
 
   .capturing {
-       background-color: blue;
+       background-color: #ff99d7;
+       border: 2px dashed black;
+       height: 14px;
+       width: 14px;
   }
 
   .captured {
     background-color : green;
+    border: 2px solid black;
+    height: 14px;
+    width: 14px;
   }

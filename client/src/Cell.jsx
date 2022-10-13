@@ -7,7 +7,7 @@ import "./Cell.css";
             id={`${props.isCurr ? "curr" : "" }` }
      className={` cell ${(props.isCaptured && props.isCaptured) ? "captured" : ""}  
                        ${(props.isFocused && props.isCaptured === false) ? "capturing" :""} 
-                       ${(props.isCaptured === false && props.isFocused === false) ? "focusing" : ""}`}>
+                       ${(props.isFocusing) ? "focusing" : ""}`}>
             
     </div>;
  }

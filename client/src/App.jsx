@@ -54,9 +54,9 @@ function App() {
             return <Cell key={Math.random()}
                       isCurr = { (currPos.i === idxI && currPos.j === idxJ) }
                       
-                      isFocusing = {(col.isFocused)}
+                      isFocused = {(col.isFocused)}
                       isCaptured = {(col.isCaptured)}
-                      
+                      isFocusing = {(col.isFocusing)}
                       
                       />
               })}

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const cellState = {
-    isFocused : 0,
-    isCaptured : 0
+    isFocusing: false,
+    isFocused : false,
+    isCaptured : false
 };
 
 

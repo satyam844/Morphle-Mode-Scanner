@@ -8,8 +8,9 @@ function createMatrix() {
         let row = [];
         for(let j = 0; j < 60; j++) {
             row.push({
-                isFocused: 0,
-                isCaptured: 0
+                isFocusing: false,
+                isFocused: false,
+                isCaptured: false
             });
         }
 
