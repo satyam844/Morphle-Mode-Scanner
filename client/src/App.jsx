@@ -7,7 +7,6 @@ import {useEffect,useState,useRef} from 'react';
 const socket = socketIOClient.connect("http://localhost:4000");
 
 function App() {
-//  const socket = useRef();
   const [slabMatrix,setSlabMatrix] = useState([]);
   const[message,setMessage] = useState("");
   const [currPos,setCurrPos] = useState({
@@ -17,7 +16,6 @@ function App() {
   );
   
   useEffect(() =>{
-    // socket.current = socketIOClient.connect("http://localhost:4000");
      socket.on("renderData",(data) => {
       console.log(data);
       setSlabMatrix(data.matrix);
