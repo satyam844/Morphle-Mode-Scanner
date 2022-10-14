@@ -1,4 +1,3 @@
-import { model } from "mongoose";
 import React, { cloneElement } from "react";
 import "./Cell.css";
 
