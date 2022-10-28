@@ -10,7 +10,8 @@ function createMatrix() {
             row.push({
                 isFocusing: false,
                 isFocused: false,
-                isCaptured: false
+                isCaptured: false,
+                isCapturing : false
             });
         }
 

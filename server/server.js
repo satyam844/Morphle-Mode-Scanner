@@ -82,16 +82,50 @@ io.on("connection",async(socket) =>{
             scanPos = currPos;
 
             while(scanPos) {
-                await operation({i: scanPos.i, j: scanPos.j});
+                // await operation({i: scanPos.i, j: scanPos.j});
+                await focus({i:scanPos.i,j:scanPos.j});
+                if(slabData.matrix[scanPos.i][scanPos.j].isFocused === true){
+                await capture({i:scanPos.i,j:scanPos.j});
+                }
                 scanPos = nxtPos;
                 nxtPos = null;
             }
 
         }
-
-      console.log(currPos.i+" "+currPos.j);
-
-    });
+    console.log(currPos.i+" "+currPos.j);
+    });   
+    async function focus(pos){
+      if(slabData.matrix[pos.i][pos.j].isFocused === true){
+        return;
+      }
+      message = `Focusing on ${pos.i},${pos.j}`;
+      sendRenderingData();
+      slabData.matrix[pos.i][pos.j].isFocusing = true;
+      await slabData.save();
+         sendRenderingData();
+         await delay(3000); 
+         slabData.matrix[pos.i][pos.j].isFocusing = false;
+         message = `Focused on ${pos.i},${pos.j}`;
+         slabData.matrix[pos.i][pos.j].isFocused = true;
+         await slabData.save();
+         sendRenderingData();
+    }
+    async function capture(pos){
+      if (slabData.matrix[pos.i][pos.j].isCaptured===true) {
+        return;
+    }
+      message = `Focused and now Capturing ${pos.i},${pos.j}`;
+         sendRenderingData();
+  slabData.matrix[pos.i][pos.j].isCapturing = true;
+         await slabData.save();
+         sendRenderingData();
+         await delay(2000);    
+         slabData.matrix[pos.i][pos.j].isCapturing = false;
+         message = `Captured ${pos.i},${pos.j}`;
+         slabData.matrix[pos.i][pos.j].isCaptured = true;
+        await slabData.save();
+        sendRenderingData();
+    }
 
    async function operation(pos){
          
