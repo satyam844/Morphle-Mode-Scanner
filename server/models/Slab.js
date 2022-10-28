@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const cellState = {
     isFocusing: false,
     isFocused : false,
+    isCapturing : false,
     isCaptured : false
 };
 
